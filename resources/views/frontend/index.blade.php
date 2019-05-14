@@ -13,7 +13,7 @@
 				<div class="custom-file">
 					<input type="file" name="file" class="custom-file-input" id="validateCustomFile">
 					<label class="custom-file-label" for="validateCustomFile">Choose file</label>
-					<div class="invalid-feedback">Выберите файл</div>
+					<div class="invalid-feedback">Choose file</div>
 				</div>
 				<div class="form-group">
 					<button type="submit">Send</button>
