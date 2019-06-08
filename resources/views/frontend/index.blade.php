@@ -21,6 +21,7 @@
 			</form>
 			<div class="content">
 				<h5>Content</h5>
+		
 			</div>
 		</div>
 	</div>

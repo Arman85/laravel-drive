@@ -23,9 +23,11 @@ class Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1PredictionInput e
   public $inputPaths;
   public $maxWorkerCount;
   public $modelName;
+  public $outputDataFormat;
   public $outputPath;
   public $region;
   public $runtimeVersion;
+  public $signatureName;
   public $uri;
   public $versionName;
 
@@ -69,6 +71,14 @@ class Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1PredictionInput e
   {
     return $this->modelName;
   }
+  public function setOutputDataFormat($outputDataFormat)
+  {
+    $this->outputDataFormat = $outputDataFormat;
+  }
+  public function getOutputDataFormat()
+  {
+    return $this->outputDataFormat;
+  }
   public function setOutputPath($outputPath)
   {
     $this->outputPath = $outputPath;
@@ -92,6 +102,14 @@ class Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1PredictionInput e
   public function getRuntimeVersion()
   {
     return $this->runtimeVersion;
+  }
+  public function setSignatureName($signatureName)
+  {
+    $this->signatureName = $signatureName;
+  }
+  public function getSignatureName()
+  {
+    return $this->signatureName;
   }
   public function setUri($uri)
   {

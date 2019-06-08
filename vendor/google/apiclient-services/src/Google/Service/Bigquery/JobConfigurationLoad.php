@@ -21,18 +21,25 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   public $allowJaggedRows;
   public $allowQuotedNewlines;
   public $autodetect;
+  protected $clusteringType = 'Google_Service_Bigquery_Clustering';
+  protected $clusteringDataType = '';
   public $createDisposition;
   protected $destinationEncryptionConfigurationType = 'Google_Service_Bigquery_EncryptionConfiguration';
   protected $destinationEncryptionConfigurationDataType = '';
   protected $destinationTableType = 'Google_Service_Bigquery_TableReference';
   protected $destinationTableDataType = '';
+  protected $destinationTablePropertiesType = 'Google_Service_Bigquery_DestinationTableProperties';
+  protected $destinationTablePropertiesDataType = '';
   public $encoding;
   public $fieldDelimiter;
+  public $hivePartitioningMode;
   public $ignoreUnknownValues;
   public $maxBadRecords;
   public $nullMarker;
   public $projectionFields;
   public $quote;
+  protected $rangePartitioningType = 'Google_Service_Bigquery_RangePartitioning';
+  protected $rangePartitioningDataType = '';
   protected $schemaType = 'Google_Service_Bigquery_TableSchema';
   protected $schemaDataType = '';
   public $schemaInline;
@@ -43,6 +50,7 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   public $sourceUris;
   protected $timePartitioningType = 'Google_Service_Bigquery_TimePartitioning';
   protected $timePartitioningDataType = '';
+  public $useAvroLogicalTypes;
   public $writeDisposition;
 
   public function setAllowJaggedRows($allowJaggedRows)
@@ -68,6 +76,20 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   public function getAutodetect()
   {
     return $this->autodetect;
+  }
+  /**
+   * @param Google_Service_Bigquery_Clustering
+   */
+  public function setClustering(Google_Service_Bigquery_Clustering $clustering)
+  {
+    $this->clustering = $clustering;
+  }
+  /**
+   * @return Google_Service_Bigquery_Clustering
+   */
+  public function getClustering()
+  {
+    return $this->clustering;
   }
   public function setCreateDisposition($createDisposition)
   {
@@ -105,6 +127,20 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   {
     return $this->destinationTable;
   }
+  /**
+   * @param Google_Service_Bigquery_DestinationTableProperties
+   */
+  public function setDestinationTableProperties(Google_Service_Bigquery_DestinationTableProperties $destinationTableProperties)
+  {
+    $this->destinationTableProperties = $destinationTableProperties;
+  }
+  /**
+   * @return Google_Service_Bigquery_DestinationTableProperties
+   */
+  public function getDestinationTableProperties()
+  {
+    return $this->destinationTableProperties;
+  }
   public function setEncoding($encoding)
   {
     $this->encoding = $encoding;
@@ -120,6 +156,14 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   public function getFieldDelimiter()
   {
     return $this->fieldDelimiter;
+  }
+  public function setHivePartitioningMode($hivePartitioningMode)
+  {
+    $this->hivePartitioningMode = $hivePartitioningMode;
+  }
+  public function getHivePartitioningMode()
+  {
+    return $this->hivePartitioningMode;
   }
   public function setIgnoreUnknownValues($ignoreUnknownValues)
   {
@@ -160,6 +204,20 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   public function getQuote()
   {
     return $this->quote;
+  }
+  /**
+   * @param Google_Service_Bigquery_RangePartitioning
+   */
+  public function setRangePartitioning(Google_Service_Bigquery_RangePartitioning $rangePartitioning)
+  {
+    $this->rangePartitioning = $rangePartitioning;
+  }
+  /**
+   * @return Google_Service_Bigquery_RangePartitioning
+   */
+  public function getRangePartitioning()
+  {
+    return $this->rangePartitioning;
   }
   /**
    * @param Google_Service_Bigquery_TableSchema
@@ -236,6 +294,14 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   public function getTimePartitioning()
   {
     return $this->timePartitioning;
+  }
+  public function setUseAvroLogicalTypes($useAvroLogicalTypes)
+  {
+    $this->useAvroLogicalTypes = $useAvroLogicalTypes;
+  }
+  public function getUseAvroLogicalTypes()
+  {
+    return $this->useAvroLogicalTypes;
   }
   public function setWriteDisposition($writeDisposition)
   {

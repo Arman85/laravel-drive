@@ -17,49 +17,29 @@
 
 class Google_Service_CloudTasks_Queue extends Google_Model
 {
-  protected $appEngineHttpTargetType = 'Google_Service_CloudTasks_AppEngineHttpTarget';
-  protected $appEngineHttpTargetDataType = '';
-  protected $appEngineQueueConfigType = 'Google_Service_CloudTasks_AppEngineQueueConfig';
-  protected $appEngineQueueConfigDataType = '';
+  protected $appEngineRoutingOverrideType = 'Google_Service_CloudTasks_AppEngineRouting';
+  protected $appEngineRoutingOverrideDataType = '';
   public $name;
-  protected $pullQueueConfigType = 'Google_Service_CloudTasks_PullQueueConfig';
-  protected $pullQueueConfigDataType = '';
-  protected $pullTargetType = 'Google_Service_CloudTasks_PullTarget';
-  protected $pullTargetDataType = '';
   public $purgeTime;
-  public $queueState;
   protected $rateLimitsType = 'Google_Service_CloudTasks_RateLimits';
   protected $rateLimitsDataType = '';
   protected $retryConfigType = 'Google_Service_CloudTasks_RetryConfig';
   protected $retryConfigDataType = '';
+  public $state;
 
   /**
-   * @param Google_Service_CloudTasks_AppEngineHttpTarget
+   * @param Google_Service_CloudTasks_AppEngineRouting
    */
-  public function setAppEngineHttpTarget(Google_Service_CloudTasks_AppEngineHttpTarget $appEngineHttpTarget)
+  public function setAppEngineRoutingOverride(Google_Service_CloudTasks_AppEngineRouting $appEngineRoutingOverride)
   {
-    $this->appEngineHttpTarget = $appEngineHttpTarget;
+    $this->appEngineRoutingOverride = $appEngineRoutingOverride;
   }
   /**
-   * @return Google_Service_CloudTasks_AppEngineHttpTarget
+   * @return Google_Service_CloudTasks_AppEngineRouting
    */
-  public function getAppEngineHttpTarget()
+  public function getAppEngineRoutingOverride()
   {
-    return $this->appEngineHttpTarget;
-  }
-  /**
-   * @param Google_Service_CloudTasks_AppEngineQueueConfig
-   */
-  public function setAppEngineQueueConfig(Google_Service_CloudTasks_AppEngineQueueConfig $appEngineQueueConfig)
-  {
-    $this->appEngineQueueConfig = $appEngineQueueConfig;
-  }
-  /**
-   * @return Google_Service_CloudTasks_AppEngineQueueConfig
-   */
-  public function getAppEngineQueueConfig()
-  {
-    return $this->appEngineQueueConfig;
+    return $this->appEngineRoutingOverride;
   }
   public function setName($name)
   {
@@ -69,34 +49,6 @@ class Google_Service_CloudTasks_Queue extends Google_Model
   {
     return $this->name;
   }
-  /**
-   * @param Google_Service_CloudTasks_PullQueueConfig
-   */
-  public function setPullQueueConfig(Google_Service_CloudTasks_PullQueueConfig $pullQueueConfig)
-  {
-    $this->pullQueueConfig = $pullQueueConfig;
-  }
-  /**
-   * @return Google_Service_CloudTasks_PullQueueConfig
-   */
-  public function getPullQueueConfig()
-  {
-    return $this->pullQueueConfig;
-  }
-  /**
-   * @param Google_Service_CloudTasks_PullTarget
-   */
-  public function setPullTarget(Google_Service_CloudTasks_PullTarget $pullTarget)
-  {
-    $this->pullTarget = $pullTarget;
-  }
-  /**
-   * @return Google_Service_CloudTasks_PullTarget
-   */
-  public function getPullTarget()
-  {
-    return $this->pullTarget;
-  }
   public function setPurgeTime($purgeTime)
   {
     $this->purgeTime = $purgeTime;
@@ -104,14 +56,6 @@ class Google_Service_CloudTasks_Queue extends Google_Model
   public function getPurgeTime()
   {
     return $this->purgeTime;
-  }
-  public function setQueueState($queueState)
-  {
-    $this->queueState = $queueState;
-  }
-  public function getQueueState()
-  {
-    return $this->queueState;
   }
   /**
    * @param Google_Service_CloudTasks_RateLimits
@@ -140,5 +84,13 @@ class Google_Service_CloudTasks_Queue extends Google_Model
   public function getRetryConfig()
   {
     return $this->retryConfig;
+  }
+  public function setState($state)
+  {
+    $this->state = $state;
+  }
+  public function getState()
+  {
+    return $this->state;
   }
 }

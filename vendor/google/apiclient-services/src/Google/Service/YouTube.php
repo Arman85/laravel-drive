@@ -34,7 +34,7 @@ class Google_Service_YouTube extends Google_Service
   /** Manage your YouTube account. */
   const YOUTUBE =
       "https://www.googleapis.com/auth/youtube";
-  /** Manage your YouTube account. */
+  /** See, edit, and permanently delete your YouTube videos, ratings, comments and captions. */
   const YOUTUBE_FORCE_SSL =
       "https://www.googleapis.com/auth/youtube.force-ssl";
   /** View your YouTube account. */
@@ -57,7 +57,6 @@ class Google_Service_YouTube extends Google_Service
   public $channels;
   public $commentThreads;
   public $comments;
-  public $fanFundingEvents;
   public $guideCategories;
   public $i18nLanguages;
   public $i18nRegions;
@@ -88,6 +87,7 @@ class Google_Service_YouTube extends Google_Service
     parent::__construct($client);
     $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'youtube/v3/';
+    $this->batchPath = 'batch/youtube/v3';
     $this->version = 'v3';
     $this->serviceName = 'youtube';
 
@@ -634,38 +634,6 @@ class Google_Service_YouTube extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                   'required' => true,
-                ),
-              ),
-            ),
-          )
-        )
-    );
-    $this->fanFundingEvents = new Google_Service_YouTube_Resource_FanFundingEvents(
-        $this,
-        $this->serviceName,
-        'fanFundingEvents',
-        array(
-          'methods' => array(
-            'list' => array(
-              'path' => 'fanFundingEvents',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'part' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'hl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
               ),
             ),

@@ -19,8 +19,8 @@
  * Service definition for AndroidProvisioningPartner (v1).
  *
  * <p>
- * Automates reseller integration into zero-touch enrollment by assigning
- * devices to customers and creating device reports.</p>
+ * Automates Android zero-touch enrollment for device resellers, customers, and
+ * EMMs.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -33,9 +33,15 @@ class Google_Service_AndroidProvisioningPartner extends Google_Service
 {
 
 
+  public $customers;
+  public $customers_configurations;
+  public $customers_devices;
+  public $customers_dpcs;
   public $operations;
   public $partners_customers;
   public $partners_devices;
+  public $partners_vendors;
+  public $partners_vendors_customers;
   
   /**
    * Constructs the internal representation of the AndroidProvisioningPartner
@@ -48,9 +54,185 @@ class Google_Service_AndroidProvisioningPartner extends Google_Service
     parent::__construct($client);
     $this->rootUrl = 'https://androiddeviceprovisioning.googleapis.com/';
     $this->servicePath = '';
+    $this->batchPath = 'batch';
     $this->version = 'v1';
     $this->serviceName = 'androiddeviceprovisioning';
 
+    $this->customers = new Google_Service_AndroidProvisioningPartner_Resource_Customers(
+        $this,
+        $this->serviceName,
+        'customers',
+        array(
+          'methods' => array(
+            'list' => array(
+              'path' => 'v1/customers',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->customers_configurations = new Google_Service_AndroidProvisioningPartner_Resource_CustomersConfigurations(
+        $this,
+        $this->serviceName,
+        'configurations',
+        array(
+          'methods' => array(
+            'create' => array(
+              'path' => 'v1/{+parent}/configurations',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'parent' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'delete' => array(
+              'path' => 'v1/{+name}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
+              'path' => 'v1/{+name}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'v1/{+parent}/configurations',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'parent' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'patch' => array(
+              'path' => 'v1/{+name}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'updateMask' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->customers_devices = new Google_Service_AndroidProvisioningPartner_Resource_CustomersDevices(
+        $this,
+        $this->serviceName,
+        'devices',
+        array(
+          'methods' => array(
+            'applyConfiguration' => array(
+              'path' => 'v1/{+parent}/devices:applyConfiguration',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'parent' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
+              'path' => 'v1/{+name}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'v1/{+parent}/devices',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'parent' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'removeConfiguration' => array(
+              'path' => 'v1/{+parent}/devices:removeConfiguration',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'parent' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'unclaim' => array(
+              'path' => 'v1/{+parent}/devices:unclaim',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'parent' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->customers_dpcs = new Google_Service_AndroidProvisioningPartner_Resource_CustomersDpcs(
+        $this,
+        $this->serviceName,
+        'dpcs',
+        array(
+          'methods' => array(
+            'list' => array(
+              'path' => 'v1/{+parent}/dpcs',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'parent' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
     $this->operations = new Google_Service_AndroidProvisioningPartner_Resource_Operations(
         $this,
         $this->serviceName,
@@ -95,6 +277,14 @@ class Google_Service_AndroidProvisioningPartner extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                 ),
               ),
             ),
@@ -200,6 +390,62 @@ class Google_Service_AndroidProvisioningPartner extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->partners_vendors = new Google_Service_AndroidProvisioningPartner_Resource_PartnersVendors(
+        $this,
+        $this->serviceName,
+        'vendors',
+        array(
+          'methods' => array(
+            'list' => array(
+              'path' => 'v1/{+parent}/vendors',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'parent' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->partners_vendors_customers = new Google_Service_AndroidProvisioningPartner_Resource_PartnersVendorsCustomers(
+        $this,
+        $this->serviceName,
+        'customers',
+        array(
+          'methods' => array(
+            'list' => array(
+              'path' => 'v1/{+parent}/customers',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'parent' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                 ),
               ),
             ),

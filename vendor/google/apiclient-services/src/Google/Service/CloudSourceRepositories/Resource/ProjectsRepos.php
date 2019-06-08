@@ -110,6 +110,21 @@ class Google_Service_CloudSourceRepositories_Resource_ProjectsRepos extends Goog
     return $this->call('list', array($params), "Google_Service_CloudSourceRepositories_ListReposResponse");
   }
   /**
+   * Updates information about a repo. (repos.patch)
+   *
+   * @param string $name The name of the requested repository. Values are of the
+   * form `projects//repos/`.
+   * @param Google_Service_CloudSourceRepositories_UpdateRepoRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_CloudSourceRepositories_Repo
+   */
+  public function patch($name, Google_Service_CloudSourceRepositories_UpdateRepoRequest $postBody, $optParams = array())
+  {
+    $params = array('name' => $name, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('patch', array($params), "Google_Service_CloudSourceRepositories_Repo");
+  }
+  /**
    * Sets the access control policy on the specified resource. Replaces any
    * existing policy. (repos.setIamPolicy)
    *
@@ -125,6 +140,23 @@ class Google_Service_CloudSourceRepositories_Resource_ProjectsRepos extends Goog
     $params = array('resource' => $resource, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('setIamPolicy', array($params), "Google_Service_CloudSourceRepositories_Policy");
+  }
+  /**
+   * Synchronize a connected repo.
+   *
+   * The response contains SyncRepoMetadata in the metadata field. (repos.sync)
+   *
+   * @param string $name The name of the repo to synchronize. Values are of the
+   * form `projects//repos/`.
+   * @param Google_Service_CloudSourceRepositories_SyncRepoRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_CloudSourceRepositories_Operation
+   */
+  public function sync($name, Google_Service_CloudSourceRepositories_SyncRepoRequest $postBody, $optParams = array())
+  {
+    $params = array('name' => $name, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('sync', array($params), "Google_Service_CloudSourceRepositories_Operation");
   }
   /**
    * Returns permissions that a caller has on the specified resource. If the

@@ -54,6 +54,7 @@ class Google_Service_Fusiontables extends Google_Service
     parent::__construct($client);
     $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'fusiontables/v2/';
+    $this->batchPath = 'batch/fusiontables/v2';
     $this->version = 'v2';
     $this->serviceName = 'fusiontables';
 
@@ -416,6 +417,16 @@ class Google_Service_Fusiontables extends Google_Service
                 'replaceViewDefinition' => array(
                   'location' => 'query',
                   'type' => 'boolean',
+                ),
+              ),
+            ),'refetchSheet' => array(
+              'path' => 'tables/{tableId}/refetch',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
                 ),
               ),
             ),'replaceRows' => array(

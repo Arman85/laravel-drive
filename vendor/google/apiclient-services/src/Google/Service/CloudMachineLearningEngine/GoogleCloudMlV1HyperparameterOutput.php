@@ -20,9 +20,12 @@ class Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOut
   protected $collection_key = 'allMetrics';
   protected $allMetricsType = 'Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutputHyperparameterMetric';
   protected $allMetricsDataType = 'array';
+  protected $builtInAlgorithmOutputType = 'Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1BuiltInAlgorithmOutput';
+  protected $builtInAlgorithmOutputDataType = '';
   protected $finalMetricType = 'Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutputHyperparameterMetric';
   protected $finalMetricDataType = '';
   public $hyperparameters;
+  public $isTrialStoppedEarly;
   public $trialId;
 
   /**
@@ -38,6 +41,20 @@ class Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOut
   public function getAllMetrics()
   {
     return $this->allMetrics;
+  }
+  /**
+   * @param Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1BuiltInAlgorithmOutput
+   */
+  public function setBuiltInAlgorithmOutput(Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1BuiltInAlgorithmOutput $builtInAlgorithmOutput)
+  {
+    $this->builtInAlgorithmOutput = $builtInAlgorithmOutput;
+  }
+  /**
+   * @return Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1BuiltInAlgorithmOutput
+   */
+  public function getBuiltInAlgorithmOutput()
+  {
+    return $this->builtInAlgorithmOutput;
   }
   /**
    * @param Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutputHyperparameterMetric
@@ -60,6 +77,14 @@ class Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOut
   public function getHyperparameters()
   {
     return $this->hyperparameters;
+  }
+  public function setIsTrialStoppedEarly($isTrialStoppedEarly)
+  {
+    $this->isTrialStoppedEarly = $isTrialStoppedEarly;
+  }
+  public function getIsTrialStoppedEarly()
+  {
+    return $this->isTrialStoppedEarly;
   }
   public function setTrialId($trialId)
   {

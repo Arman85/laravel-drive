@@ -19,17 +19,16 @@ class Google_Service_CloudTasks_Task extends Google_Model
 {
   protected $appEngineHttpRequestType = 'Google_Service_CloudTasks_AppEngineHttpRequest';
   protected $appEngineHttpRequestDataType = '';
-  protected $appEngineTaskTargetType = 'Google_Service_CloudTasks_AppEngineTaskTarget';
-  protected $appEngineTaskTargetDataType = '';
   public $createTime;
+  public $dispatchCount;
+  public $dispatchDeadline;
+  protected $firstAttemptType = 'Google_Service_CloudTasks_Attempt';
+  protected $firstAttemptDataType = '';
+  protected $lastAttemptType = 'Google_Service_CloudTasks_Attempt';
+  protected $lastAttemptDataType = '';
   public $name;
-  protected $pullMessageType = 'Google_Service_CloudTasks_PullMessage';
-  protected $pullMessageDataType = '';
-  protected $pullTaskTargetType = 'Google_Service_CloudTasks_PullTaskTarget';
-  protected $pullTaskTargetDataType = '';
+  public $responseCount;
   public $scheduleTime;
-  protected $taskStatusType = 'Google_Service_CloudTasks_TaskStatus';
-  protected $taskStatusDataType = '';
   public $view;
 
   /**
@@ -46,20 +45,6 @@ class Google_Service_CloudTasks_Task extends Google_Model
   {
     return $this->appEngineHttpRequest;
   }
-  /**
-   * @param Google_Service_CloudTasks_AppEngineTaskTarget
-   */
-  public function setAppEngineTaskTarget(Google_Service_CloudTasks_AppEngineTaskTarget $appEngineTaskTarget)
-  {
-    $this->appEngineTaskTarget = $appEngineTaskTarget;
-  }
-  /**
-   * @return Google_Service_CloudTasks_AppEngineTaskTarget
-   */
-  public function getAppEngineTaskTarget()
-  {
-    return $this->appEngineTaskTarget;
-  }
   public function setCreateTime($createTime)
   {
     $this->createTime = $createTime;
@@ -67,6 +52,50 @@ class Google_Service_CloudTasks_Task extends Google_Model
   public function getCreateTime()
   {
     return $this->createTime;
+  }
+  public function setDispatchCount($dispatchCount)
+  {
+    $this->dispatchCount = $dispatchCount;
+  }
+  public function getDispatchCount()
+  {
+    return $this->dispatchCount;
+  }
+  public function setDispatchDeadline($dispatchDeadline)
+  {
+    $this->dispatchDeadline = $dispatchDeadline;
+  }
+  public function getDispatchDeadline()
+  {
+    return $this->dispatchDeadline;
+  }
+  /**
+   * @param Google_Service_CloudTasks_Attempt
+   */
+  public function setFirstAttempt(Google_Service_CloudTasks_Attempt $firstAttempt)
+  {
+    $this->firstAttempt = $firstAttempt;
+  }
+  /**
+   * @return Google_Service_CloudTasks_Attempt
+   */
+  public function getFirstAttempt()
+  {
+    return $this->firstAttempt;
+  }
+  /**
+   * @param Google_Service_CloudTasks_Attempt
+   */
+  public function setLastAttempt(Google_Service_CloudTasks_Attempt $lastAttempt)
+  {
+    $this->lastAttempt = $lastAttempt;
+  }
+  /**
+   * @return Google_Service_CloudTasks_Attempt
+   */
+  public function getLastAttempt()
+  {
+    return $this->lastAttempt;
   }
   public function setName($name)
   {
@@ -76,33 +105,13 @@ class Google_Service_CloudTasks_Task extends Google_Model
   {
     return $this->name;
   }
-  /**
-   * @param Google_Service_CloudTasks_PullMessage
-   */
-  public function setPullMessage(Google_Service_CloudTasks_PullMessage $pullMessage)
+  public function setResponseCount($responseCount)
   {
-    $this->pullMessage = $pullMessage;
+    $this->responseCount = $responseCount;
   }
-  /**
-   * @return Google_Service_CloudTasks_PullMessage
-   */
-  public function getPullMessage()
+  public function getResponseCount()
   {
-    return $this->pullMessage;
-  }
-  /**
-   * @param Google_Service_CloudTasks_PullTaskTarget
-   */
-  public function setPullTaskTarget(Google_Service_CloudTasks_PullTaskTarget $pullTaskTarget)
-  {
-    $this->pullTaskTarget = $pullTaskTarget;
-  }
-  /**
-   * @return Google_Service_CloudTasks_PullTaskTarget
-   */
-  public function getPullTaskTarget()
-  {
-    return $this->pullTaskTarget;
+    return $this->responseCount;
   }
   public function setScheduleTime($scheduleTime)
   {
@@ -111,20 +120,6 @@ class Google_Service_CloudTasks_Task extends Google_Model
   public function getScheduleTime()
   {
     return $this->scheduleTime;
-  }
-  /**
-   * @param Google_Service_CloudTasks_TaskStatus
-   */
-  public function setTaskStatus(Google_Service_CloudTasks_TaskStatus $taskStatus)
-  {
-    $this->taskStatus = $taskStatus;
-  }
-  /**
-   * @return Google_Service_CloudTasks_TaskStatus
-   */
-  public function getTaskStatus()
-  {
-    return $this->taskStatus;
   }
   public function setView($view)
   {

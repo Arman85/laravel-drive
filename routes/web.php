@@ -20,7 +20,7 @@ Route::get('', function () {
 });
 
 Route::get('put', function() {
-    Storage::cloud()->put('test.txt', 'Hello World');
+    Storage::cloud()->put('test.txt', 'Hi World');
     return 'File was saved to Google Drive';
 });
 
@@ -33,14 +33,16 @@ Route::get('put-existing', function() {
     return 'File was saved to Google Drive';
 });
 
-Route::get('list', function() {
-    $dir = '/';
-    $recursive = false; // Get subdirectories also?
-    $contents = collect(Storage::cloud()->listContents($dir, $recursive));
+// Route::get('list', function() {
+//     $dir = '/';
+//     $recursive = false; // Get subdirectories also?
+//     $contents = collect(Storage::cloud()->listContents($dir, $recursive));
 
-    //return $contents->where('type', '=', 'dir'); // directories
-    return $contents->where('type', '=', 'file'); // files
-});
+//     //return $contents->where('type', '=', 'dir'); // directories
+//     return $contents->where('type', '=', 'file'); // files
+// });
+
+Route::get('list', 'SiteController@index')->name('home');
 
 Route::get('list-folder-contents', function() {
     // The human readable folder name to get the contents of...
@@ -305,4 +307,12 @@ Route::get('export/{basename}', function ($basename) {
     $export = $service->files->export($basename, $mimeType);
 
     return response($export->getBody(), 200, $export->getHeaders());
+});
+
+
+Auth::routes();
+
+// Admin area
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+    Route::get('/', 'HomeController@index');
 });
