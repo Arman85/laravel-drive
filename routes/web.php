@@ -19,10 +19,11 @@ Route::get('', function () {
 	return view('frontend.index');
 });
 
-Route::get('put', function() {
-    Storage::cloud()->put('test.txt', 'Hi World today');
-    return 'File was saved to Google Drive';
-});
+// Route::get('put', function() {
+//     Storage::cloud()->put('test.txt', 'Hi World today');
+//     return 'File was saved to Google Drive';
+// });
+
 Route::get('put-existing', function() {
     $filename = 'laravel.png';
     $filePath = public_path($filename);
@@ -244,7 +245,7 @@ Auth::routes();
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
 	Route::get('/', 'HomeController@index');
-
+	Route::resource('objs', 'ObjController');
+	Route::resource('galleries', 'GalleryController');
+	
 });
-
-Route::resource('objs', 'ObjController');

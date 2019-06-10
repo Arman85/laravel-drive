@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 
+use Storage;
+
 class ObjController extends AppBaseController
 {
     /** @var  ObjRepository */
@@ -31,8 +33,43 @@ class ObjController extends AppBaseController
     {
         $objs = $this->objRepository->all();
 
-        return view('objs.index')
-            ->with('objs', $objs);
+        // The human readable folder name to get the contents of...
+    // For simplicity, this folder is assumed to exist in the root directory.
+    //     $folder = 'Тойхана "Еки жулдыз"';
+    // // Get root directory contents...
+    //     $contents = collect(Storage::cloud()->listContents('/', false));
+    // // Find the folder you are looking for...
+    //     $dir = $contents->where('type', '=', 'dir')
+    //     ->where('filename', '=', $folder)
+    //     ->first(); // There could be duplicate directory names!
+    //     if ( ! $dir) {
+    //         return 'No such folder!';
+    //     }
+    // // Get the files inside the folder...
+    //     $files = collect(Storage::cloud()->listContents($dir['path'], false))
+    //     ->where('type', '=', 'file');
+    //     return $files->mapWithKeys(function($file) {
+    //         $filename = $file['filename'].'.'.$file['extension'];
+    //         $path = $file['path'];
+    //     // Use the path to download each file via a generated link..
+    //     // Storage::cloud()->get($file['path']);
+    //         return [$filename => $path];
+    //     });
+
+        //dd($dir->filename);
+
+        $dir = '/';
+        $recursive = false; // Get subdirectories also?
+        $contents = collect(Storage::cloud()->listContents($dir, $recursive));
+        //return $contents->where('type', '=', 'dir'); // directories
+        //return $contents->where('type', '=', 'file'); // files
+        $dirs = $contents->where('type', '=', 'dir');
+        //dd($dirs);
+
+        return view('objs.index')->with('dirs', $dirs);
+
+        // return view('objs.index')
+        //     ->with('objs', $objs);
     }
 
     /**
@@ -56,9 +93,13 @@ class ObjController extends AppBaseController
     {
         $input = $request->all();
 
-        $obj = $this->objRepository->create($input);
+        //$obj = $this->objRepository->create($input);
 
-        Flash::success('Obj saved successfully.');
+        //$test = Storage::cloud()->put('test.txt', 'Hi World today'); 
+        //dd($input['name']);    
+        Storage::cloud()->makeDirectory($input['name']);
+
+        Flash::success('Папка сделана.');
 
         return redirect(route('objs.index'));
     }

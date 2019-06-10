@@ -7,14 +7,14 @@
             </tr>
         </thead>
         <tbody>
-        @foreach($objs as $obj)
+        @foreach($dirs as $k => $dir)
             <tr>
-                <td>{!! $obj->name !!}</td>
+                <td>{!! $dir['name'] !!}</td>
                 <td>
-                    {!! Form::open(['route' => ['objs.destroy', $obj->id], 'method' => 'delete']) !!}
+                    {!! Form::open(['route' => ['objs.destroy', $k], 'method' => 'delete']) !!}
                     <div class='btn-group'>
-                        <a href="{!! route('objs.show', [$obj->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                        <a href="{!! route('objs.edit', [$obj->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+                        <a href="{!! route('objs.show', [$k]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
+                        <a href="{!! route('objs.edit', [$k]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
                         {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>
                     {!! Form::close() !!}
