@@ -26,6 +26,22 @@
 class Google_Service_AndroidEnterprise_Resource_Devices extends Google_Service_Resource
 {
   /**
+   * Uploads a report containing any changes in app states on the device since the
+   * last report was generated. You can call this method up to 3 times every 24
+   * hours for a given device. (devices.forceReportUpload)
+   *
+   * @param string $enterpriseId The ID of the enterprise.
+   * @param string $userId The ID of the user.
+   * @param string $deviceId The ID of the device.
+   * @param array $optParams Optional parameters.
+   */
+  public function forceReportUpload($enterpriseId, $userId, $deviceId, $optParams = array())
+  {
+    $params = array('enterpriseId' => $enterpriseId, 'userId' => $userId, 'deviceId' => $deviceId);
+    $params = array_merge($params, $optParams);
+    return $this->call('forceReportUpload', array($params));
+  }
+  /**
    * Retrieves the details of a device. (devices.get)
    *
    * @param string $enterpriseId The ID of the enterprise.
@@ -74,6 +90,29 @@ class Google_Service_AndroidEnterprise_Resource_Devices extends Google_Service_R
     return $this->call('list', array($params), "Google_Service_AndroidEnterprise_DevicesListResponse");
   }
   /**
+   * Updates the device policy. This method supports patch semantics.
+   * (devices.patch)
+   *
+   * @param string $enterpriseId The ID of the enterprise.
+   * @param string $userId The ID of the user.
+   * @param string $deviceId The ID of the device.
+   * @param Google_Service_AndroidEnterprise_Device $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string updateMask Mask that identifies which fields to update. If
+   * not set, all modifiable fields will be modified.
+   *
+   * When set in a query parameter, this field should be specified as
+   * updateMask=,,...
+   * @return Google_Service_AndroidEnterprise_Device
+   */
+  public function patch($enterpriseId, $userId, $deviceId, Google_Service_AndroidEnterprise_Device $postBody, $optParams = array())
+  {
+    $params = array('enterpriseId' => $enterpriseId, 'userId' => $userId, 'deviceId' => $deviceId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('patch', array($params), "Google_Service_AndroidEnterprise_Device");
+  }
+  /**
    * Sets whether a device's access to Google services is enabled or disabled. The
    * device state takes effect only if enforcing EMM policies on Android devices
    * is enabled in the Google Admin Console. Otherwise, the device state is
@@ -92,5 +131,27 @@ class Google_Service_AndroidEnterprise_Resource_Devices extends Google_Service_R
     $params = array('enterpriseId' => $enterpriseId, 'userId' => $userId, 'deviceId' => $deviceId, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('setState', array($params), "Google_Service_AndroidEnterprise_DeviceState");
+  }
+  /**
+   * Updates the device policy (devices.update)
+   *
+   * @param string $enterpriseId The ID of the enterprise.
+   * @param string $userId The ID of the user.
+   * @param string $deviceId The ID of the device.
+   * @param Google_Service_AndroidEnterprise_Device $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string updateMask Mask that identifies which fields to update. If
+   * not set, all modifiable fields will be modified.
+   *
+   * When set in a query parameter, this field should be specified as
+   * updateMask=,,...
+   * @return Google_Service_AndroidEnterprise_Device
+   */
+  public function update($enterpriseId, $userId, $deviceId, Google_Service_AndroidEnterprise_Device $postBody, $optParams = array())
+  {
+    $params = array('enterpriseId' => $enterpriseId, 'userId' => $userId, 'deviceId' => $deviceId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('update', array($params), "Google_Service_AndroidEnterprise_Device");
   }
 }

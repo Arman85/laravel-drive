@@ -19,10 +19,11 @@
  * Service definition for CloudTrace (v2).
  *
  * <p>
- * Send and retrieve trace data from Stackdriver Trace. Data is generated and
- * available by default for all App Engine applications. Data from other
- * applications can be written to Stackdriver Trace for display, reporting, and
- * analysis.</p>
+ * Sends application trace data to Stackdriver Trace for viewing. Trace data is
+ * collected for all App Engine applications by default. Trace data from other
+ * applications can be provided using this API. This library is used to interact
+ * with the Trace API directly. If you are looking to instrument your
+ * application for Stackdriver Trace, we recommend using OpenCensus.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -53,6 +54,7 @@ class Google_Service_CloudTrace extends Google_Service
     parent::__construct($client);
     $this->rootUrl = 'https://cloudtrace.googleapis.com/';
     $this->servicePath = '';
+    $this->batchPath = 'batch';
     $this->version = 'v2';
     $this->serviceName = 'cloudtrace';
 
@@ -82,9 +84,9 @@ class Google_Service_CloudTrace extends Google_Service
         'spans',
         array(
           'methods' => array(
-            'create' => array(
+            'createSpan' => array(
               'path' => 'v2/{+name}',
-              'httpMethod' => 'PUT',
+              'httpMethod' => 'POST',
               'parameters' => array(
                 'name' => array(
                   'location' => 'path',

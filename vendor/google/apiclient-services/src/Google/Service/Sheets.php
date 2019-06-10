@@ -30,16 +30,16 @@
  */
 class Google_Service_Sheets extends Google_Service
 {
-  /** View and manage the files in your Google Drive. */
+  /** See, edit, create, and delete all of your Google Drive files. */
   const DRIVE =
       "https://www.googleapis.com/auth/drive";
   /** View and manage Google Drive files and folders that you have opened or created with this app. */
   const DRIVE_FILE =
       "https://www.googleapis.com/auth/drive.file";
-  /** View the files in your Google Drive. */
+  /** See and download all your Google Drive files. */
   const DRIVE_READONLY =
       "https://www.googleapis.com/auth/drive.readonly";
-  /** View and manage your spreadsheets in Google Drive. */
+  /** See, edit, create, and delete your spreadsheets in Google Drive. */
   const SPREADSHEETS =
       "https://www.googleapis.com/auth/spreadsheets";
   /** View your Google Spreadsheets. */
@@ -61,6 +61,7 @@ class Google_Service_Sheets extends Google_Service
     parent::__construct($client);
     $this->rootUrl = 'https://sheets.googleapis.com/';
     $this->servicePath = '';
+    $this->batchPath = 'batch';
     $this->version = 'v4';
     $this->serviceName = 'sheets';
 
@@ -93,14 +94,14 @@ class Google_Service_Sheets extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'includeGridData' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
                 'ranges' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
+                ),
+                'includeGridData' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ),
               ),
             ),'getByDataFilter' => array(
@@ -197,10 +198,6 @@ class Google_Service_Sheets extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'responseValueRenderOption' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'insertDataOption' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -216,6 +213,10 @@ class Google_Service_Sheets extends Google_Service
                 'includeValuesInResponse' => array(
                   'location' => 'query',
                   'type' => 'boolean',
+                ),
+                'responseValueRenderOption' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'batchClear' => array(
@@ -247,7 +248,11 @@ class Google_Service_Sheets extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'majorDimension' => array(
+                'valueRenderOption' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'dateTimeRenderOption' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -256,11 +261,7 @@ class Google_Service_Sheets extends Google_Service
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'dateTimeRenderOption' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'valueRenderOption' => array(
+                'majorDimension' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -324,7 +325,7 @@ class Google_Service_Sheets extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'dateTimeRenderOption' => array(
+                'majorDimension' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -332,7 +333,7 @@ class Google_Service_Sheets extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'majorDimension' => array(
+                'dateTimeRenderOption' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),

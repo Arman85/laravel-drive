@@ -63,16 +63,26 @@ class Google_Service_Slides_Request extends Google_Model
   protected $replaceAllShapesWithSheetsChartDataType = '';
   protected $replaceAllTextType = 'Google_Service_Slides_ReplaceAllTextRequest';
   protected $replaceAllTextDataType = '';
+  protected $replaceImageType = 'Google_Service_Slides_ReplaceImageRequest';
+  protected $replaceImageDataType = '';
+  protected $rerouteLineType = 'Google_Service_Slides_RerouteLineRequest';
+  protected $rerouteLineDataType = '';
   protected $ungroupObjectsType = 'Google_Service_Slides_UngroupObjectsRequest';
   protected $ungroupObjectsDataType = '';
   protected $unmergeTableCellsType = 'Google_Service_Slides_UnmergeTableCellsRequest';
   protected $unmergeTableCellsDataType = '';
   protected $updateImagePropertiesType = 'Google_Service_Slides_UpdateImagePropertiesRequest';
   protected $updateImagePropertiesDataType = '';
+  protected $updateLineCategoryType = 'Google_Service_Slides_UpdateLineCategoryRequest';
+  protected $updateLineCategoryDataType = '';
   protected $updateLinePropertiesType = 'Google_Service_Slides_UpdateLinePropertiesRequest';
   protected $updateLinePropertiesDataType = '';
+  protected $updatePageElementAltTextType = 'Google_Service_Slides_UpdatePageElementAltTextRequest';
+  protected $updatePageElementAltTextDataType = '';
   protected $updatePageElementTransformType = 'Google_Service_Slides_UpdatePageElementTransformRequest';
   protected $updatePageElementTransformDataType = '';
+  protected $updatePageElementsZOrderType = 'Google_Service_Slides_UpdatePageElementsZOrderRequest';
+  protected $updatePageElementsZOrderDataType = '';
   protected $updatePagePropertiesType = 'Google_Service_Slides_UpdatePagePropertiesRequest';
   protected $updatePagePropertiesDataType = '';
   protected $updateParagraphStyleType = 'Google_Service_Slides_UpdateParagraphStyleRequest';
@@ -417,6 +427,34 @@ class Google_Service_Slides_Request extends Google_Model
     return $this->replaceAllText;
   }
   /**
+   * @param Google_Service_Slides_ReplaceImageRequest
+   */
+  public function setReplaceImage(Google_Service_Slides_ReplaceImageRequest $replaceImage)
+  {
+    $this->replaceImage = $replaceImage;
+  }
+  /**
+   * @return Google_Service_Slides_ReplaceImageRequest
+   */
+  public function getReplaceImage()
+  {
+    return $this->replaceImage;
+  }
+  /**
+   * @param Google_Service_Slides_RerouteLineRequest
+   */
+  public function setRerouteLine(Google_Service_Slides_RerouteLineRequest $rerouteLine)
+  {
+    $this->rerouteLine = $rerouteLine;
+  }
+  /**
+   * @return Google_Service_Slides_RerouteLineRequest
+   */
+  public function getRerouteLine()
+  {
+    return $this->rerouteLine;
+  }
+  /**
    * @param Google_Service_Slides_UngroupObjectsRequest
    */
   public function setUngroupObjects(Google_Service_Slides_UngroupObjectsRequest $ungroupObjects)
@@ -459,6 +497,20 @@ class Google_Service_Slides_Request extends Google_Model
     return $this->updateImageProperties;
   }
   /**
+   * @param Google_Service_Slides_UpdateLineCategoryRequest
+   */
+  public function setUpdateLineCategory(Google_Service_Slides_UpdateLineCategoryRequest $updateLineCategory)
+  {
+    $this->updateLineCategory = $updateLineCategory;
+  }
+  /**
+   * @return Google_Service_Slides_UpdateLineCategoryRequest
+   */
+  public function getUpdateLineCategory()
+  {
+    return $this->updateLineCategory;
+  }
+  /**
    * @param Google_Service_Slides_UpdateLinePropertiesRequest
    */
   public function setUpdateLineProperties(Google_Service_Slides_UpdateLinePropertiesRequest $updateLineProperties)
@@ -473,6 +525,20 @@ class Google_Service_Slides_Request extends Google_Model
     return $this->updateLineProperties;
   }
   /**
+   * @param Google_Service_Slides_UpdatePageElementAltTextRequest
+   */
+  public function setUpdatePageElementAltText(Google_Service_Slides_UpdatePageElementAltTextRequest $updatePageElementAltText)
+  {
+    $this->updatePageElementAltText = $updatePageElementAltText;
+  }
+  /**
+   * @return Google_Service_Slides_UpdatePageElementAltTextRequest
+   */
+  public function getUpdatePageElementAltText()
+  {
+    return $this->updatePageElementAltText;
+  }
+  /**
    * @param Google_Service_Slides_UpdatePageElementTransformRequest
    */
   public function setUpdatePageElementTransform(Google_Service_Slides_UpdatePageElementTransformRequest $updatePageElementTransform)
@@ -485,6 +551,20 @@ class Google_Service_Slides_Request extends Google_Model
   public function getUpdatePageElementTransform()
   {
     return $this->updatePageElementTransform;
+  }
+  /**
+   * @param Google_Service_Slides_UpdatePageElementsZOrderRequest
+   */
+  public function setUpdatePageElementsZOrder(Google_Service_Slides_UpdatePageElementsZOrderRequest $updatePageElementsZOrder)
+  {
+    $this->updatePageElementsZOrder = $updatePageElementsZOrder;
+  }
+  /**
+   * @return Google_Service_Slides_UpdatePageElementsZOrderRequest
+   */
+  public function getUpdatePageElementsZOrder()
+  {
+    return $this->updatePageElementsZOrder;
   }
   /**
    * @param Google_Service_Slides_UpdatePagePropertiesRequest

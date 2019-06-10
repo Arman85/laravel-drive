@@ -19,6 +19,8 @@ class Google_Service_Bigquery_JobConfigurationQuery extends Google_Collection
 {
   protected $collection_key = 'userDefinedFunctionResources';
   public $allowLargeResults;
+  protected $clusteringType = 'Google_Service_Bigquery_Clustering';
+  protected $clusteringDataType = '';
   public $createDisposition;
   protected $defaultDatasetType = 'Google_Service_Bigquery_DatasetReference';
   protected $defaultDatasetDataType = '';
@@ -35,6 +37,8 @@ class Google_Service_Bigquery_JobConfigurationQuery extends Google_Collection
   public $query;
   protected $queryParametersType = 'Google_Service_Bigquery_QueryParameter';
   protected $queryParametersDataType = 'array';
+  protected $rangePartitioningType = 'Google_Service_Bigquery_RangePartitioning';
+  protected $rangePartitioningDataType = '';
   public $schemaUpdateOptions;
   protected $tableDefinitionsType = 'Google_Service_Bigquery_ExternalDataConfiguration';
   protected $tableDefinitionsDataType = 'map';
@@ -53,6 +57,20 @@ class Google_Service_Bigquery_JobConfigurationQuery extends Google_Collection
   public function getAllowLargeResults()
   {
     return $this->allowLargeResults;
+  }
+  /**
+   * @param Google_Service_Bigquery_Clustering
+   */
+  public function setClustering(Google_Service_Bigquery_Clustering $clustering)
+  {
+    $this->clustering = $clustering;
+  }
+  /**
+   * @return Google_Service_Bigquery_Clustering
+   */
+  public function getClustering()
+  {
+    return $this->clustering;
   }
   public function setCreateDisposition($createDisposition)
   {
@@ -173,6 +191,20 @@ class Google_Service_Bigquery_JobConfigurationQuery extends Google_Collection
   public function getQueryParameters()
   {
     return $this->queryParameters;
+  }
+  /**
+   * @param Google_Service_Bigquery_RangePartitioning
+   */
+  public function setRangePartitioning(Google_Service_Bigquery_RangePartitioning $rangePartitioning)
+  {
+    $this->rangePartitioning = $rangePartitioning;
+  }
+  /**
+   * @return Google_Service_Bigquery_RangePartitioning
+   */
+  public function getRangePartitioning()
+  {
+    return $this->rangePartitioning;
   }
   public function setSchemaUpdateOptions($schemaUpdateOptions)
   {

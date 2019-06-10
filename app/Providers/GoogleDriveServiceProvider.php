@@ -7,12 +7,23 @@ use Illuminate\Support\ServiceProvider;
 class GoogleDriveServiceProvider extends ServiceProvider
 {
     /**
-     * Bootstrap the application services.
+     * Register services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+
+    /**
+     * Bootstrap services.
      *
      * @return void
      */
     public function boot()
     {
+        //
         \Storage::extend('google', function($app, $config) {
             $client = new \Google_Client();
             $client->setClientId($config['clientId']);
@@ -29,15 +40,5 @@ class GoogleDriveServiceProvider extends ServiceProvider
 
             return new \League\Flysystem\Filesystem($adapter);
         });
-    }
-
-    /**
-     * Register the application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
     }
 }

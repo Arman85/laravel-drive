@@ -17,7 +17,7 @@
 
 class Google_Service_Compute_Snapshot extends Google_Collection
 {
-  protected $collection_key = 'licenses';
+  protected $collection_key = 'storageLocations';
   public $creationTimestamp;
   public $description;
   public $diskSizeGb;
@@ -25,6 +25,7 @@ class Google_Service_Compute_Snapshot extends Google_Collection
   public $kind;
   public $labelFingerprint;
   public $labels;
+  public $licenseCodes;
   public $licenses;
   public $name;
   public $selfLink;
@@ -37,6 +38,7 @@ class Google_Service_Compute_Snapshot extends Google_Collection
   public $status;
   public $storageBytes;
   public $storageBytesStatus;
+  public $storageLocations;
 
   public function setCreationTimestamp($creationTimestamp)
   {
@@ -93,6 +95,14 @@ class Google_Service_Compute_Snapshot extends Google_Collection
   public function getLabels()
   {
     return $this->labels;
+  }
+  public function setLicenseCodes($licenseCodes)
+  {
+    $this->licenseCodes = $licenseCodes;
+  }
+  public function getLicenseCodes()
+  {
+    return $this->licenseCodes;
   }
   public function setLicenses($licenses)
   {
@@ -185,5 +195,13 @@ class Google_Service_Compute_Snapshot extends Google_Collection
   public function getStorageBytesStatus()
   {
     return $this->storageBytesStatus;
+  }
+  public function setStorageLocations($storageLocations)
+  {
+    $this->storageLocations = $storageLocations;
+  }
+  public function getStorageLocations()
+  {
+    return $this->storageLocations;
   }
 }

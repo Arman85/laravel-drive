@@ -15,15 +15,37 @@
  * the License.
  */
 
-class Google_Service_Dataflow_RuntimeEnvironment extends Google_Model
+class Google_Service_Dataflow_RuntimeEnvironment extends Google_Collection
 {
+  protected $collection_key = 'additionalExperiments';
+  public $additionalExperiments;
+  public $additionalUserLabels;
   public $bypassTempDirValidation;
   public $machineType;
   public $maxWorkers;
+  public $network;
+  public $numWorkers;
   public $serviceAccountEmail;
+  public $subnetwork;
   public $tempLocation;
   public $zone;
 
+  public function setAdditionalExperiments($additionalExperiments)
+  {
+    $this->additionalExperiments = $additionalExperiments;
+  }
+  public function getAdditionalExperiments()
+  {
+    return $this->additionalExperiments;
+  }
+  public function setAdditionalUserLabels($additionalUserLabels)
+  {
+    $this->additionalUserLabels = $additionalUserLabels;
+  }
+  public function getAdditionalUserLabels()
+  {
+    return $this->additionalUserLabels;
+  }
   public function setBypassTempDirValidation($bypassTempDirValidation)
   {
     $this->bypassTempDirValidation = $bypassTempDirValidation;
@@ -48,6 +70,22 @@ class Google_Service_Dataflow_RuntimeEnvironment extends Google_Model
   {
     return $this->maxWorkers;
   }
+  public function setNetwork($network)
+  {
+    $this->network = $network;
+  }
+  public function getNetwork()
+  {
+    return $this->network;
+  }
+  public function setNumWorkers($numWorkers)
+  {
+    $this->numWorkers = $numWorkers;
+  }
+  public function getNumWorkers()
+  {
+    return $this->numWorkers;
+  }
   public function setServiceAccountEmail($serviceAccountEmail)
   {
     $this->serviceAccountEmail = $serviceAccountEmail;
@@ -55,6 +93,14 @@ class Google_Service_Dataflow_RuntimeEnvironment extends Google_Model
   public function getServiceAccountEmail()
   {
     return $this->serviceAccountEmail;
+  }
+  public function setSubnetwork($subnetwork)
+  {
+    $this->subnetwork = $subnetwork;
+  }
+  public function getSubnetwork()
+  {
+    return $this->subnetwork;
   }
   public function setTempLocation($tempLocation)
   {

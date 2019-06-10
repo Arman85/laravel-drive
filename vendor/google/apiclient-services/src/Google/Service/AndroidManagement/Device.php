@@ -19,9 +19,13 @@ class Google_Service_AndroidManagement_Device extends Google_Collection
 {
   protected $collection_key = 'previousDeviceNames';
   public $apiLevel;
+  protected $applicationReportsType = 'Google_Service_AndroidManagement_ApplicationReport';
+  protected $applicationReportsDataType = 'array';
   public $appliedPolicyName;
   public $appliedPolicyVersion;
   public $appliedState;
+  protected $deviceSettingsType = 'Google_Service_AndroidManagement_DeviceSettings';
+  protected $deviceSettingsDataType = '';
   protected $disabledReasonType = 'Google_Service_AndroidManagement_UserFacingMessage';
   protected $disabledReasonDataType = '';
   protected $displaysType = 'Google_Service_AndroidManagement_Display';
@@ -36,6 +40,7 @@ class Google_Service_AndroidManagement_Device extends Google_Collection
   public $lastPolicyComplianceReportTime;
   public $lastPolicySyncTime;
   public $lastStatusReportTime;
+  public $managementMode;
   protected $memoryEventsType = 'Google_Service_AndroidManagement_MemoryEvent';
   protected $memoryEventsDataType = 'array';
   protected $memoryInfoType = 'Google_Service_AndroidManagement_MemoryInfo';
@@ -53,6 +58,9 @@ class Google_Service_AndroidManagement_Device extends Google_Collection
   protected $softwareInfoType = 'Google_Service_AndroidManagement_SoftwareInfo';
   protected $softwareInfoDataType = '';
   public $state;
+  public $systemProperties;
+  protected $userType = 'Google_Service_AndroidManagement_User';
+  protected $userDataType = '';
   public $userName;
 
   public function setApiLevel($apiLevel)
@@ -62,6 +70,20 @@ class Google_Service_AndroidManagement_Device extends Google_Collection
   public function getApiLevel()
   {
     return $this->apiLevel;
+  }
+  /**
+   * @param Google_Service_AndroidManagement_ApplicationReport
+   */
+  public function setApplicationReports($applicationReports)
+  {
+    $this->applicationReports = $applicationReports;
+  }
+  /**
+   * @return Google_Service_AndroidManagement_ApplicationReport
+   */
+  public function getApplicationReports()
+  {
+    return $this->applicationReports;
   }
   public function setAppliedPolicyName($appliedPolicyName)
   {
@@ -86,6 +108,20 @@ class Google_Service_AndroidManagement_Device extends Google_Collection
   public function getAppliedState()
   {
     return $this->appliedState;
+  }
+  /**
+   * @param Google_Service_AndroidManagement_DeviceSettings
+   */
+  public function setDeviceSettings(Google_Service_AndroidManagement_DeviceSettings $deviceSettings)
+  {
+    $this->deviceSettings = $deviceSettings;
+  }
+  /**
+   * @return Google_Service_AndroidManagement_DeviceSettings
+   */
+  public function getDeviceSettings()
+  {
+    return $this->deviceSettings;
   }
   /**
    * @param Google_Service_AndroidManagement_UserFacingMessage
@@ -190,6 +226,14 @@ class Google_Service_AndroidManagement_Device extends Google_Collection
   public function getLastStatusReportTime()
   {
     return $this->lastStatusReportTime;
+  }
+  public function setManagementMode($managementMode)
+  {
+    $this->managementMode = $managementMode;
+  }
+  public function getManagementMode()
+  {
+    return $this->managementMode;
   }
   /**
    * @param Google_Service_AndroidManagement_MemoryEvent
@@ -314,6 +358,28 @@ class Google_Service_AndroidManagement_Device extends Google_Collection
   public function getState()
   {
     return $this->state;
+  }
+  public function setSystemProperties($systemProperties)
+  {
+    $this->systemProperties = $systemProperties;
+  }
+  public function getSystemProperties()
+  {
+    return $this->systemProperties;
+  }
+  /**
+   * @param Google_Service_AndroidManagement_User
+   */
+  public function setUser(Google_Service_AndroidManagement_User $user)
+  {
+    $this->user = $user;
+  }
+  /**
+   * @return Google_Service_AndroidManagement_User
+   */
+  public function getUser()
+  {
+    return $this->user;
   }
   public function setUserName($userName)
   {

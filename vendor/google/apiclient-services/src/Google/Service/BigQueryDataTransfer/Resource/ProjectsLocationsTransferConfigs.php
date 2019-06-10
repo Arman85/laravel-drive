@@ -30,12 +30,18 @@ class Google_Service_BigQueryDataTransfer_Resource_ProjectsLocationsTransferConf
    *
    * @param string $parent The BigQuery project id where the transfer
    * configuration should be created. Must be in the format
-   * /projects/{project_id}/locations/{location_id} or
-   * /projects/{project_id}/locations/- In case when '-' is specified as
-   * location_id, location is infered from the destination dataset region.
+   * projects/{project_id}/locations/{location_id} If specified location and
+   * location of the destination bigquery dataset do not match - the request will
+   * fail.
    * @param Google_Service_BigQueryDataTransfer_TransferConfig $postBody
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string versionInfo Optional version info. If users want to find a
+   * very recent access token, that is, immediately after approving access, users
+   * have to set the version_info claim in the token request. To obtain the
+   * version_info, users must use the “none+gsession” response type. which be
+   * return a version_info back in the authorization response which be be put in a
+   * JWT claim in the token request.
    * @opt_param string authorizationCode Optional OAuth2 authorization code to use
    * with this transfer configuration. This is required if new credentials are
    * needed, as indicated by `CheckValidCreds`. In order to obtain
@@ -117,16 +123,27 @@ class Google_Service_BigQueryDataTransfer_Resource_ProjectsLocationsTransferConf
    * are not updated. (transferConfigs.patch)
    *
    * @param string $name The resource name of the transfer config. Transfer config
-   * names have the form `projects/{project_id}/transferConfigs/{config_id}`.
-   * Where `config_id` is usually a uuid, even though it is not guaranteed or
-   * required. The name is ignored when creating a transfer config.
+   * names have the form of
+   * `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`. The
+   * name is automatically generated based on the config_id specified in
+   * CreateTransferConfigRequest along with project_id and region. If config_id is
+   * not provided, usually a uuid, even though it is not guaranteed or required,
+   * will be generated for config_id.
    * @param Google_Service_BigQueryDataTransfer_TransferConfig $postBody
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string updateMask Required list of fields to be updated in this
+   * request.
+   * @opt_param string versionInfo Optional version info. If users want to find a
+   * very recent access token, that is, immediately after approving access, users
+   * have to set the version_info claim in the token request. To obtain the
+   * version_info, users must use the “none+gsession” response type. which be
+   * return a version_info back in the authorization response which be be put in a
+   * JWT claim in the token request.
    * @opt_param string authorizationCode Optional OAuth2 authorization code to use
    * with this transfer configuration. If it is provided, the transfer
-   * configuration will be associated with the gaia id of the authorizing user. In
-   * order to obtain authorization_code, please make a request to
+   * configuration will be associated with the authorizing user. In order to
+   * obtain authorization_code, please make a request to
    * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id==_uri=
    *
    * * client_id should be OAuth client_id of BigQuery DTS API for the given
@@ -138,8 +155,6 @@ class Google_Service_BigQueryDataTransfer_Resource_ProjectsLocationsTransferConf
    * authorization code should be   returned in the title bar of the browser, with
    * the page text prompting   the user to copy the code and paste it in the
    * application.
-   * @opt_param string updateMask Required list of fields to be updated in this
-   * request.
    * @return Google_Service_BigQueryDataTransfer_TransferConfig
    */
   public function patch($name, Google_Service_BigQueryDataTransfer_TransferConfig $postBody, $optParams = array())
@@ -149,10 +164,11 @@ class Google_Service_BigQueryDataTransfer_Resource_ProjectsLocationsTransferConf
     return $this->call('patch', array($params), "Google_Service_BigQueryDataTransfer_TransferConfig");
   }
   /**
-   * Creates transfer runs for a time range [range_start_time, range_end_time].
-   * For each date - or whatever granularity the data source supports - in the
-   * range, one transfer run is created. Note that runs are created per UTC time
-   * in the time range. (transferConfigs.scheduleRuns)
+   * Creates transfer runs for a time range [start_time, end_time]. For each date
+   * - or whatever granularity the data source supports - in the range, one
+   * transfer run is created. Note that runs are created per UTC time in the time
+   * range. DEPRECATED: use StartManualTransferRuns instead.
+   * (transferConfigs.scheduleRuns)
    *
    * @param string $parent Transfer configuration name in the form:
    * `projects/{project_id}/transferConfigs/{config_id}`.
@@ -165,5 +181,23 @@ class Google_Service_BigQueryDataTransfer_Resource_ProjectsLocationsTransferConf
     $params = array('parent' => $parent, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('scheduleRuns', array($params), "Google_Service_BigQueryDataTransfer_ScheduleTransferRunsResponse");
+  }
+  /**
+   * Start manual transfer runs to be executed now with schedule_time equal to
+   * current time. The transfer runs can be created for a time range where the
+   * run_time is between start_time (inclusive) and end_time (exclusive), or for a
+   * specific run_time. (transferConfigs.startManualRuns)
+   *
+   * @param string $parent Transfer configuration name in the form:
+   * `projects/{project_id}/transferConfigs/{config_id}`.
+   * @param Google_Service_BigQueryDataTransfer_StartManualTransferRunsRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_BigQueryDataTransfer_StartManualTransferRunsResponse
+   */
+  public function startManualRuns($parent, Google_Service_BigQueryDataTransfer_StartManualTransferRunsRequest $postBody, $optParams = array())
+  {
+    $params = array('parent' => $parent, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('startManualRuns', array($params), "Google_Service_BigQueryDataTransfer_StartManualTransferRunsResponse");
   }
 }

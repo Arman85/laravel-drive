@@ -65,12 +65,12 @@ class Google_Service_Directory_Resource_Chromeosdevices extends Google_Service_R
    *
    * @opt_param int maxResults Maximum number of results to return. Default is 100
    * @opt_param string orderBy Column to use for sorting results
-   * @opt_param string orgUnitPath Full path of the organization unit or its Id
+   * @opt_param string orgUnitPath Full path of the organizational unit or its ID
    * @opt_param string pageToken Token to specify next page in the list
    * @opt_param string projection Restrict information returned to a set of
    * selected fields.
    * @opt_param string query Search string in the format given at
-   * http://support.google.com/chromeos/a/bin/answer.py?hl=en=1698333
+   * http://support.google.com/chromeos/a/bin/answer.py?answer=1698333
    * @opt_param string sortOrder Whether to return results in ascending or
    * descending order. Only of use when orderBy is also used
    * @return Google_Service_Directory_ChromeOsDevices
@@ -82,12 +82,12 @@ class Google_Service_Directory_Resource_Chromeosdevices extends Google_Service_R
     return $this->call('list', array($params), "Google_Service_Directory_ChromeOsDevices");
   }
   /**
-   * Move or insert multiple Chrome OS Devices to Organization Unit
+   * Move or insert multiple Chrome OS Devices to organizational unit
    * (chromeosdevices.moveDevicesToOu)
    *
    * @param string $customerId Immutable ID of the G Suite account
-   * @param string $orgUnitPath Full path of the target organization unit or its
-   * Id
+   * @param string $orgUnitPath Full path of the target organizational unit or its
+   * ID
    * @param Google_Service_Directory_ChromeOsMoveDevicesToOu $postBody
    * @param array $optParams Optional parameters.
    */

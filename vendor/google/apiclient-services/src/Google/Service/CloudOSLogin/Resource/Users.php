@@ -31,6 +31,11 @@ class Google_Service_CloudOSLogin_Resource_Users extends Google_Service_Resource
    *
    * @param string $name The unique ID for the user in format `users/{user}`.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string projectId The project ID of the Google Cloud Platform
+   * project.
+   * @opt_param string systemId A system ID for filtering the results of the
+   * request.
    * @return Google_Service_CloudOSLogin_LoginProfile
    */
   public function getLoginProfile($name, $optParams = array())
@@ -47,6 +52,9 @@ class Google_Service_CloudOSLogin_Resource_Users extends Google_Service_Resource
    * @param string $parent The unique ID for the user in format `users/{user}`.
    * @param Google_Service_CloudOSLogin_SshPublicKey $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string projectId The project ID of the Google Cloud Platform
+   * project.
    * @return Google_Service_CloudOSLogin_ImportSshPublicKeyResponse
    */
   public function importSshPublicKey($parent, Google_Service_CloudOSLogin_SshPublicKey $postBody, $optParams = array())
