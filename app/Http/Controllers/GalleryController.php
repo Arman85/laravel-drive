@@ -51,28 +51,38 @@ class GalleryController extends AppBaseController
         //return $contents->where('type', '=', 'dir'); // directories
         //return $contents->where('type', '=', 'file'); // files
         $dirs = $contents->where('type', '=', 'dir');
-
+        //dd($dirs);
         $arrDirs = [];
         foreach($dirs as $k => $dir) {
-            $arrDirs['name'] = $dir['name'];
+            $arrDirs[] = $dir['name'];
         }
+
+        //dd($arrDirs);
 
         //Storage::cloud()->makeDirectory('Test Dir');
 
         // $dir = '/';
         // $recursive = false; // Get subdirectories also?
         // $contents = collect(Storage::cloud()->listContents($dir, $recursive));
-        $resDirs = $contents->where('type', '=', 'dir')
-            ->where('filename', '=', $arrDirs['name'])
-            ->first(); // There could be duplicate directory names!
-        if ( ! $resDirs) {
-            return 'Directory does not exist!';
-        }
+// Старт Делаю под директорию
+        // foreach ($arrDirs as $key => $value) {
+        //    $resDirs = $contents->where('type', '=', 'dir')
+        //     ->where('filename', '=', $value['name'])
+        //     ->first(); // There could be duplicate directory names!
+        // }
+        
+        // if ( ! $resDirs) {
+        //     return 'Directory does not exist!';
+        // }
 
         // Create sub dir
-        Storage::cloud()->makeDirectory($resDirs['path'].'/Sub Dir');
+        //Storage::cloud()->makeDirectory($resDirs['path'].'/Sub Dir');
+// Конец Делаю под директорию
+        // foreach($resDirs as $resDir){
+        //     dd($resDir);
+        // }  
 
-        //dd($resDirs);
+        //dd($arrDirs);
 
         return view('galleries.create', compact('arrDirs'));
     }
